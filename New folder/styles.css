@@ -1,0 +1,164 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.game-options {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+button, select {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+select {
+    background-color: #3498db;
+}
+
+select:hover {
+    background-color: #2980b9;
+}
+
+#board-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#board {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows: repeat(9, 1fr);
+    gap: 1px;
+    border: 2px solid #333;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 450px;
+    aspect-ratio: 1 / 1;
+}
+
+.cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    font-size: 20px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.cell:hover {
+    background-color: #f0f0f0;
+}
+
+.cell.selected {
+    background-color: #d4edda;
+}
+
+.cell.fixed {
+    background-color: #f8f9fa;
+    color: #333;
+    font-weight: bold;
+}
+
+.cell.error {
+    background-color: #f8d7da;
+}
+
+/* Add borders to separate 3x3 boxes */
+.cell:nth-child(3n) {
+    border-right: 2px solid #333;
+}
+
+.cell:nth-child(9n) {
+    border-right: none;
+}
+
+.row:nth-child(3n) .cell {
+    border-bottom: 2px solid #333;
+}
+
+#number-pad {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 5px;
+    width: 100%;
+    max-width: 450px;
+}
+
+#number-pad button {
+    padding: 10px;
+    font-size: 18px;
+}
+
+#erase {
+    grid-column: span 2;
+    background-color: #dc3545;
+}
+
+#erase:hover {
+    background-color: #c82333;
+}
+
+.game-status {
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    color: #555;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+    
+    #board {
+        max-width: 100%;
+    }
+    
+    .cell {
+        font-size: 16px;
+    }
+    
+    #number-pad button {
+        font-size: 16px;
+        padding: 8px;
+    }
+}
